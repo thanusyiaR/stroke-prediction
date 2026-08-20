@@ -1,4 +1,4 @@
-"""Create report-ready comparison figures from the validated Mac test results."""
+
 from pathlib import Path
 import re
 
