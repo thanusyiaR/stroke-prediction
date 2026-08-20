@@ -1,0 +1,13 @@
+Original variable,Original dtype,Transformation,Model representation
+id,int64,Excluded identifier,Not a predictor
+stroke,int64,Retained as binary target,Never a predictor
+age,float64,Median imputation then StandardScaler,Scaled numeric feature
+avg_glucose_level,float64,Median imputation then StandardScaler,Scaled numeric feature
+bmi,float64,Training-median imputation then StandardScaler,Scaled numeric feature
+hypertension,int64,Passed through unchanged as 0/1,Binary model feature
+heart_disease,int64,Passed through unchanged as 0/1,Binary model feature
+gender,object,Most-frequent imputation and one-hot encoding,2 indicator features; Female reference
+ever_married,object,Most-frequent imputation and one-hot encoding,1 indicator feature; No reference
+work_type,object,Most-frequent imputation and one-hot encoding,4 indicators; Govt_job reference
+Residence_type,object,Most-frequent imputation and one-hot encoding,1 indicator; Rural reference
+smoking_status,object,Most-frequent imputation and one-hot encoding,3 indicators; Unknown reference

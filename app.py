@@ -1,6 +1,7 @@
 """Revised Streamlit prototype using the leakage-controlled training pipeline."""
 from io import BytesIO
 from pathlib import Path
+from dashboard_research_evidence import render_research_evidence
 import json
 
 import joblib
@@ -16,7 +17,7 @@ from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, Tabl
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "revised_outputs"
 
-st.set_page_config(page_title="Stroke Risk Prediction Prototype", page_icon="🧠", layout="wide")
+st.set_page_config(page_title="Stroke Risk Prediction Using Machine Learning and Patient Segmentation", page_icon="🧠", layout="wide")
 
 
 @st.cache_resource
@@ -45,7 +46,7 @@ def clinical_segment(patient):
 def make_pdf(patient, probability, classification, segment, factors):
     buffer = BytesIO()
     styles = getSampleStyleSheet()
-    story = [Paragraph("Stroke Risk Prediction Prototype Report", styles["Title"]), Spacer(1, 12)]
+    story = [Paragraph("Stroke Risk Prediction Using Machine Learning and Patient Segmentation - Patient Report", styles["Title"]), Spacer(1, 12)]
     rows = [["Field", "Value"]] + [[k.replace("_", " ").title(), str(v)] for k, v in patient.items()]
     rows += [["Model probability", f"{probability:.2%}"], ["Threshold classification", classification],
              ["Project-specific risk-factor segment", segment], ["Detected factors", ", ".join(factors) or "None"]]
@@ -64,7 +65,7 @@ def make_pdf(patient, probability, classification, segment, factors):
 pipeline, metadata, results, thresholds, imbalance, features = load_artifacts()
 threshold = float(metadata["classification_threshold"])
 
-st.title("🧠 Stroke Risk Prediction and Patient Segmentation")
+st.title("🧠 Stroke Risk Prediction Using Machine Learning and Patient Segmentation")
 st.caption("Revised academic decision-support prototype | XGBoost with training-derived class weighting")
 st.warning("For academic demonstration only. The model has not been externally or clinically validated.")
 
@@ -198,3 +199,5 @@ with st.expander("XGBoost imbalance-strategy comparison"):
         "F1-score, and balanced accuracy without double-correcting the minority class."
     )
     st.dataframe(imbalance, width="stretch", hide_index=True)
+
+render_research_evidence(ROOT)
