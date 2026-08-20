@@ -5,8 +5,7 @@
 The dataset records whether `stroke` is 0 or 1 but contains no variable that
 identifies a first-ever event, a recurrent event, or prior stroke history.
 Accordingly, the revised project uses **Stroke Risk Prediction Using Machine
-Learning and Patient Segmentation** and does not claim that the outcome is
-specifically first-time stroke.
+Learning and Patient Segmentation**.
 
 ## Corrected experimental design
 
@@ -60,11 +59,6 @@ has not been derived, calibrated, or validated as a clinical stroke-risk score.
 It must not be used for diagnosis or treatment decisions and remains separate
 from the XGBoost probability.
 
-## Methodology-to-implementation consistency
-
-`METHODOLOGY_IMPLEMENTATION_CONSISTENCY.md` is the authoritative consistency
-matrix for Chapters 3, 5, and 6. It identifies the implemented workflow and the
-superseded statements that must not remain in the final thesis.
 
 ## Final independent-test results
 
@@ -108,4 +102,4 @@ The generated model, tables, and figures are stored in `revised_outputs/`.
 
 ## Deployment
 
-For the revised Streamlit deployment, set the application entry point to `app_revised.py`. Do not use the old saved model or the fixed old performance values in `app_new.py`.
+The Streamlit Community Cloud deployment uses app_new.py as its entry point. This compatibility entry point executes the revised application implemented in app.py. The deployed system loads the revised XGBoost pipeline and corresponding validated outputs. Legacy saved models and fixed historical performance values are not used.
