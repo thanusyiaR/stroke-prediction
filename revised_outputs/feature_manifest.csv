@@ -1,0 +1,27 @@
+Model Feature,Source Variable,Feature Type,Preparation,Included
+age,age,Original numeric,Median imputation and StandardScaler,Yes
+avg_glucose_level,avg_glucose_level,Original numeric,Median imputation and StandardScaler,Yes
+bmi,bmi,Original numeric,Median imputation and StandardScaler,Yes
+hypertension,hypertension,Original binary,Passed through as 0/1,Yes
+heart_disease,heart_disease,Original binary,Passed through as 0/1,Yes
+gender_Male,gender,Encoded categorical,One-hot indicator; Female reference,Yes
+gender_Other,gender,Encoded categorical,One-hot indicator; Female reference,Yes
+ever_married_Yes,ever_married,Encoded categorical,One-hot indicator; No reference,Yes
+work_type_Never_worked,work_type,Encoded categorical,One-hot indicator; Govt_job reference,Yes
+work_type_Private,work_type,Encoded categorical,One-hot indicator; Govt_job reference,Yes
+work_type_Self-employed,work_type,Encoded categorical,One-hot indicator; Govt_job reference,Yes
+work_type_children,work_type,Encoded categorical,One-hot indicator; Govt_job reference,Yes
+Residence_type_Urban,Residence_type,Encoded categorical,One-hot indicator; Rural reference,Yes
+smoking_status_formerly smoked,smoking_status,Encoded categorical,One-hot indicator; Unknown reference,Yes
+smoking_status_never smoked,smoking_status,Encoded categorical,One-hot indicator; Unknown reference,Yes
+smoking_status_smokes,smoking_status,Encoded categorical,One-hot indicator; Unknown reference,Yes
+id,id,Identifier,Excluded before modelling,No
+stroke,stroke,Outcome target,Target only; never a predictor,No
+age_group,age,Segmentation-derived,Excluded from predictive pipeline,No
+bmi_category,bmi,Segmentation-derived,Excluded from predictive pipeline,No
+glucose_risk,avg_glucose_level,Segmentation-derived,Excluded from predictive pipeline,No
+hypertension_group,hypertension,Segmentation-derived,Excluded from predictive pipeline,No
+heart_disease_group,heart_disease,Segmentation-derived,Excluded from predictive pipeline,No
+lifestyle_group,smoking_status,Segmentation-derived,Excluded from predictive pipeline,No
+risk_score,multiple variables,Segmentation-derived,Excluded from predictive pipeline,No
+patient_segment,multiple variables,Segmentation-derived,Excluded from predictive pipeline,No

@@ -1,0 +1,29 @@
+{
+  "dataset_records": 5110,
+  "non_stroke_records": 4861,
+  "stroke_records": 249,
+  "missing_bmi_before_imputation": 201,
+  "duplicate_rows": 0,
+  "training_records": 4088,
+  "test_records": 1022,
+  "training_stroke_records": 199,
+  "test_stroke_records": 50,
+  "random_state": 42,
+  "cv_folds": 5,
+  "classification_threshold": 0.5,
+  "scale_pos_weight": 19.542713567839197,
+  "selected_model": "XGBoost",
+  "selection_basis": "highest mean ROC-AUC and PR-AUC in five-fold stratified training-only cross-validation",
+  "raw_input_columns": [
+    "gender",
+    "age",
+    "hypertension",
+    "heart_disease",
+    "ever_married",
+    "work_type",
+    "Residence_type",
+    "avg_glucose_level",
+    "bmi",
+    "smoking_status"
+  ]
+}
